@@ -1,38 +1,44 @@
 <!-- to add add css in asstets folder -->
 <!-- add suport for compoent -->
 <!-- add support for button -->
-<div>
+<div [class]="parentClass">
     <ng-container *ngFor="let fieldC of fieldConfig">
         <ng-template *ngTemplateOutlet="renderFields;context:{field:fieldC}"></ng-template>
     </ng-container>
 </div>
 <ng-template #renderFields let-field="field">
     <div *ngIf="field?.type == DynamicFieldType.GROUP">
-        <p>{{field?.title}}</p>
-        <ng-template *ngTemplateOutlet="fieldBlock;context:{field:field.fields, parentF:field}"></ng-template>
+        <div [class]="field?.parentClass">
+            <p>{{field?.title}}</p>
+            <div [class]="field?.groupClass">
+                <ng-template *ngTemplateOutlet="fieldBlock;context:{field:field.fields, parentF:field}"></ng-template>
+            </div>
+        </div>
     </div>
 
     <div *ngIf="field?.type != DynamicFieldType.GROUP">
-        <ng-template *ngTemplateOutlet="fieldBlock;context:{field:[field]}"></ng-template>
+        <div [class]="field?.parentClass">
+            <ng-template *ngTemplateOutlet="fieldBlock;context:{field:[field]}"></ng-template>
+        </div>
     </div>
 </ng-template>
 
 <ng-template #fieldBlock let-field="field" let-parentf="parentF">
-    <div [class]="parentf?.parentClass">
     <ng-container *ngFor="let innerF of field">
-            <div [class]="innerF?.fieldClass" *ngIf="innerF?.type ==  DynamicFieldType.LABEL">
-                <label>
-                    {{innerF?.label}}
-                </label>
-                <span [class]="innerF?.valueClass">
-                    {{innerF?.value || "okok"}}
-                </span>
+        <div [class]="innerF?.fieldClass" *ngIf="innerF?.type ==  DynamicFieldType.LABEL">
+            <label>
+                {{innerF?.label}}
+            </label>
+            <div [class]="innerF?.valueClass">
+                {{innerF?.value || "okok"}}
             </div>
-    
-            <div *ngIf="DynamicFieldType.GROUP == innerF?.type">
-                <p>{{innerF?.title}}</p>
+        </div>
+
+        <div *ngIf="DynamicFieldType.GROUP == innerF?.type">
+            <p>{{innerF?.title}}</p>
+            <div [class]="innerF?.parentClass">
                 <ng-template *ngTemplateOutlet="fieldBlock;context:{field:innerF.fields}"></ng-template>
             </div>
-        </ng-container>
-    </div>
+        </div>
+    </ng-container>
 </ng-template>
