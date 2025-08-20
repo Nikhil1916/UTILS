@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 
@@ -7,7 +7,8 @@ import { SharedModule } from './shared/shared.module';
   standalone: true,
   imports: [RouterOutlet, SharedModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent {
   title = 'utils';
