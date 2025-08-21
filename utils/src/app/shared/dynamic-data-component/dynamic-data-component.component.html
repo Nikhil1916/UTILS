@@ -1,25 +1,33 @@
 <!-- to add add css in asstets folder -->
 <!-- add suport for compoent -->
 <!-- add support for button -->
-<div [class]="parentClass">
-    <ng-container *ngFor="let fieldC of fieldConfig">
-        <ng-template *ngTemplateOutlet="renderFields;context:{field:fieldC}"></ng-template>
-    </ng-container>
+<!-- https://chatgpt.com/c/68a5a166-77d4-8321-b6c4-ffefa5ab1420 -->
+
+<!-- add wrapper classes like button wrapper field wrapper as per need as this is just a demo for what can be done -->
+ <!-- add tooltip support -->
+<div [class]="config?.containerClass">
+    <div *ngIf="config?.title" [class]="config?.titleClass">{{config?.title}}</div>
+    <div *ngIf="config?.subtitle" [class]="config?.subTitleClass">{{config?.subtitle}}</div>
+    <div [class]="config?.parentClass">
+        <ng-container *ngFor="let fieldC of config?.fields">
+            <ng-template *ngTemplateOutlet="renderFields;context:{field:fieldC}"></ng-template>
+        </ng-container>
+    </div>
 </div>
 <ng-template #renderFields let-field="field">
-    <div *ngIf="field?.type == DynamicFieldType.GROUP">
+        <div *ngIf="field?.type == DynamicFieldType.GROUP">
         <div [class]="field?.parentClass">
             <p>{{field?.title}}</p>
             <div [class]="field?.groupClass">
                 <ng-template *ngTemplateOutlet="fieldBlock;context:{field:field.fields, parentF:field}"></ng-template>
             </div>
+            </div>
         </div>
-    </div>
 
-    <div *ngIf="field?.type != DynamicFieldType.GROUP">
-        <div [class]="field?.parentClass">
-            <ng-template *ngTemplateOutlet="fieldBlock;context:{field:[field]}"></ng-template>
-        </div>
+        <div *ngIf="field?.type != DynamicFieldType.GROUP">
+            <div [class]="field?.parentClass">
+                <ng-template *ngTemplateOutlet="fieldBlock;context:{field:[field]}"></ng-template>
+            </div>
     </div>
 </ng-template>
 
@@ -39,6 +47,12 @@
             <div [class]="innerF?.parentClass">
                 <ng-template *ngTemplateOutlet="fieldBlock;context:{field:innerF.fields}"></ng-template>
             </div>
+        </div>
+
+        <div *ngIf="DynamicFieldType.BUTTON == innerF?.type">
+            <button [class]="innerF?.buttonClass" (click)="innerF?.onClick()">
+                {{innerF?.label}}
+            </button>
         </div>
     </ng-container>
 </ng-template>
