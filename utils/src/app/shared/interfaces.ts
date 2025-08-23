@@ -1,10 +1,11 @@
 import { DynamicFieldType } from "./enums";
 
 export interface DynamicFields {
-    readonly type: DynamicFieldType.BUTTON | DynamicFieldType.COMPONENT | DynamicFieldType.GROUP | DynamicFieldType.LABEL,
+    readonly type: DynamicFieldType.BUTTON | DynamicFieldType.COMPONENT | DynamicFieldType.GROUP | DynamicFieldType.LABEL | DynamicFieldType.INNERHTML,
     readonly value?:string, //field value
     readonly label?:string, //field label
     readonly title?:string, // group title
+    readonly key?:string,
     onClick?:()=>void, //button onclick
     fields?:DynamicFields[], // group fields
     readonly fieldClass?:string, //field class

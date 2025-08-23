@@ -19,6 +19,9 @@
     padding: 18px;
     padding-bottom: 0px;
 }
+.border-none {
+    border: none !important;
+}
 
 .address-col {
     padding: 5px;

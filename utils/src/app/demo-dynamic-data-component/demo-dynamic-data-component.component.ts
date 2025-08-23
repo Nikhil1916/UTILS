@@ -16,7 +16,7 @@ export class DemoDynamicDataComponentComponent {
    config:DynamicContainerConfig = {
       parentClass:'d-flex header',
       title: 'dynamic component construction',
-      titleClass: 'font-bold m-2 ',
+      titleClass: 'font-bold m-2 border-none',
       fields:[
       {
         type: DynamicFieldType.LABEL,
@@ -24,6 +24,7 @@ export class DemoDynamicDataComponentComponent {
         parentClass: 'col',
         fieldClass: 'm-2 font-bold',
         valueClass: 'font-low',
+        key: 'first_name'
       },
       {
         type: DynamicFieldType.LABEL,
@@ -31,6 +32,7 @@ export class DemoDynamicDataComponentComponent {
         parentClass: 'col',
         fieldClass: 'm-2 font-bold',
         valueClass: 'font-low',
+        key: 'second_name'
       },
       {
         type: DynamicFieldType.LABEL,
@@ -38,6 +40,7 @@ export class DemoDynamicDataComponentComponent {
         fieldClass: 'm-2 font-bold',
         valueClass: 'font-low',
         parentClass: 'col',
+        key: 'last_name'
       },
       {
         type: DynamicFieldType.GROUP,
@@ -52,28 +55,38 @@ export class DemoDynamicDataComponentComponent {
             fields: [
               {
                 type: DynamicFieldType.LABEL,
-                label: 'First Name I',
+                label: 'Country',
                 fieldClass: 'font-bold',
                 valueClass: 'font-low',
+                key: 'address.country'
               },
               {
                 type: DynamicFieldType.LABEL,
-                label: 'Second Name I',
+                label: 'State',
+                key: 'address.state'
               },
               {
                 type: DynamicFieldType.LABEL,
-                label: 'Last Name I',
+                label: 'City',
+                key: 'address.city'
               },
             ],
           },
           {
             type: DynamicFieldType.LABEL,
-            label: 'Second Name',
+            label: 'Salary',
+            key: 'salary'
           },
           {
             type: DynamicFieldType.LABEL,
-            label: 'Last Name',
+            label: 'Age',
+            key: 'age'
           },
+          {
+            type: DynamicFieldType.INNERHTML,
+            label: 'innerhtml',
+            key: 'inner_html'
+          }
         ],
       },
       {
@@ -86,4 +99,18 @@ export class DemoDynamicDataComponentComponent {
     this.toggle=!this.toggle;
     console.log("click me to toggle Value", this.toggle);
   }
+
+  response = {
+    first_name: 'Nikhil',
+    second_name: 'Manoj',
+    last_name: 'Chawla',
+    address: {
+      city: 'Ludhiana',
+      country: 'India',
+      state: 'Punjab'
+    },
+    salary:50000,
+    age:26
+  }
+
 }

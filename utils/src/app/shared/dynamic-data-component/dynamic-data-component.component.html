@@ -4,8 +4,11 @@
 <!-- https://chatgpt.com/c/68a5a166-77d4-8321-b6c4-ffefa5ab1420 -->
 
 <!-- add wrapper classes like button wrapper field wrapper as per need as this is just a demo for what can be done -->
- <!-- add tooltip support -->
-<div [class]="config?.containerClass">
+  <!-- add tooltip support  -->
+   <!-- /add pipe support -->
+<!-- add en.json -->
+ <!-- /add prefix sfuux maskin -->
+   <div [class]="config?.containerClass">
     <div *ngIf="config?.title" [class]="config?.titleClass">{{config?.title}}</div>
     <div *ngIf="config?.subtitle" [class]="config?.subTitleClass">{{config?.subtitle}}</div>
     <div [class]="config?.parentClass">
@@ -53,6 +56,10 @@
             <button [class]="innerF?.buttonClass" (click)="innerF?.onClick()">
                 {{innerF?.label}}
             </button>
+        </div>
+
+        <div *ngIf="DynamicFieldType.INNERHTML == innerF?.type">
+            <div [innerHTML]="innerF?.value"></div>
         </div>
     </ng-container>
 </ng-template>
