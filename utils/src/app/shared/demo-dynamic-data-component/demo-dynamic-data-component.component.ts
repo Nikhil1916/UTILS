@@ -1,12 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
-import { DynamicFieldType } from '../shared/enums';
-import { DynamicContainerConfig } from '../shared/interfaces';
+import { SharedModule } from '../shared.module';
+import { DynamicFieldType } from '../enums';
+import { DynamicContainerConfig } from '../interfaces';
 
 @Component({
   selector: 'app-demo-dynamic-data-component',
-  standalone: true,
-  imports: [SharedModule],
   templateUrl: './demo-dynamic-data-component.component.html',
   styleUrl: './demo-dynamic-data-component.component.css',
   encapsulation: ViewEncapsulation.ShadowDom
@@ -63,24 +61,37 @@ export class DemoDynamicDataComponentComponent {
               {
                 type: DynamicFieldType.LABEL,
                 label: 'State',
-                key: 'address.state'
+                key: 'address.state',
+                fieldClass: 'font-bold',
+                valueClass: 'font-low',
               },
               {
                 type: DynamicFieldType.LABEL,
                 label: 'City',
-                key: 'address.city'
+                key: 'address.city',
+                fieldClass: 'font-bold',
+                valueClass: 'font-low',
               },
             ],
           },
           {
             type: DynamicFieldType.LABEL,
             label: 'Salary',
-            key: 'salary'
+            key: 'salary',
+            transformType:'currency',
+            transformConfig: {
+              currencyCode:"INR",
+              display:"code"
+            },
+            fieldClass:'p-2 font-bold',
+            valueClass: 'font-low',
           },
           {
             type: DynamicFieldType.LABEL,
             label: 'Age',
-            key: 'age'
+            key: 'age',
+            fieldClass: 'font-bold',
+            valueClass: 'font-low',
           },
           {
             type: DynamicFieldType.INNERHTML,

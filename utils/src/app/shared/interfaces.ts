@@ -11,7 +11,9 @@ export interface DynamicFields {
     readonly fieldClass?:string, //field class
     readonly valueClass?:string, //field value class
     readonly parentClass?:string, //field parent div clas
-    readonly groupClass?:string //group parent div class
+    readonly groupClass?:string, //group parent div class
+    readonly transformType?:string,
+    readonly transformConfig?:any
 }
 
 export interface DynamicContainerConfig {
@@ -22,4 +24,8 @@ export interface DynamicContainerConfig {
     subTitleClass?:string,
     fields?:DynamicFields[],
     parentClass?:string
+}
+
+export interface ValueTransformStrategy {
+  transform(value: any, config?:any): any;
 }

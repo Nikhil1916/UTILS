@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { DynamicDataComponentComponent } from './dynamic-data-component/dynamic-data-component.component';
+import { DemoDynamicDataComponentComponent } from './demo-dynamic-data-component/demo-dynamic-data-component.component';
 
 
 
 @NgModule({
   declarations: [
-    DynamicDataComponentComponent
+    DynamicDataComponentComponent,
+    DemoDynamicDataComponentComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports:[
-    DynamicDataComponentComponent
+    DynamicDataComponentComponent,
+    DemoDynamicDataComponentComponent
+  ],
+  providers:[
+    DatePipe,
+    CurrencyPipe
   ]
 })
 export class SharedModule { }
