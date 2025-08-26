@@ -8,6 +8,7 @@
    <!-- /add pipe support -->
 <!-- add en.json -->
  <!-- /add prefix sfuux maskin -->
+  <!-- /add accordian support -->
    <div [class]="config?.containerClass">
     <div *ngIf="config?.title" [class]="config?.titleClass">{{config?.title}}</div>
     <div *ngIf="config?.subtitle" [class]="config?.subTitleClass">{{config?.subtitle}}</div>
@@ -61,5 +62,8 @@
         <div *ngIf="DynamicFieldType.INNERHTML == innerF?.type">
             <div [innerHTML]="innerF?.value"></div>
         </div>
+    <ng-container *ngIf="innerF.type === DynamicFieldType.COMPONENT" [dynamicHost]="componentMap[innerF.component]"
+        [inputs]="innerF?.inputs" [outputs]="innerF?.outputs">
+    </ng-container>
     </ng-container>
 </ng-template>

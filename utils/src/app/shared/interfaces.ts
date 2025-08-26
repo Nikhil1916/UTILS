@@ -13,7 +13,11 @@ export interface DynamicFields {
     readonly parentClass?:string, //field parent div clas
     readonly groupClass?:string, //group parent div class
     readonly transformType?:string,
-    readonly transformConfig?:any
+    readonly transformConfig?:any,
+    readonly component?:any,
+    readonly inputs?:any,
+    readonly outputs?:any,
+    
 }
 
 export interface DynamicContainerConfig {
