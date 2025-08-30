@@ -1,0 +1,56 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit($event)">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" formControlName="fullName" />
+    </div>
+    <br />
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" name="email" formControlName="email" />
+    </div>
+    <br />
+    <div>
+        <label>Gender</label>
+        <label>
+            <input type="radio" formControlName="gender" value="M" />
+            Male
+        </label>
+
+        <label>
+            <input type="radio" formControlName="gender" value="F" />
+            Female
+        </label>
+    </div>
+
+    <br />
+    <div [ngClass]="'col-6'" formArrayName="agecheck">
+        <label>Are You 18+:</label><br />
+        <div *ngFor="let val of ageCheck.controls; let i = index" [formGroupName]="i">
+            <input type="checkbox" formControlName="selected" />
+            {{ val.get('label')?.value }}
+        </div>
+        <div *ngIf="myForm.get('hobbies')?.invalid && myForm.get('hobbies')?.touched">
+            Please select at least one thing.
+        </div>
+    </div>
+    <br />
+    <div [ngClass]="'col-6'" formArrayName="hobbies">
+        <label>Hobbies:</label><br />
+        <div *ngFor="let hobby of hobbies.controls; let i = index" [formGroupName]="i">
+            <input type="checkbox" formControlName="selected" />
+            {{ hobby.get('label')?.value }}
+        </div>
+        <div *ngIf="myForm.get('hobbies')?.invalid && myForm.get('hobbies')?.touched">
+            Please select at least one hobby.
+        </div>
+    </div>
+    <br/>
+    <div>
+        <label>Address:</label>
+        <input type="textarea" formControlName="address"/>
+    </div>
+    <br />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>

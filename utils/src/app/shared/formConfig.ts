@@ -36,6 +36,24 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     validators: [{ name: 'required' }]
   },
   {
+    key: 'agecheck',
+    type: 'checkbox',
+    label: "are you 18+?",
+    options: [
+      {
+         label:'Yes',
+         value: 'true'
+      },
+      {
+         label:'No',
+         value: 'false'
+      }
+    ],
+    validators:[
+      {name:'required'}
+    ]
+  },
+  {
     key: 'hobbies',
     type: 'checkbox',
     label: 'Hobbies',
@@ -44,6 +62,9 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
       { label: 'Sports', value: 'sports' },
       { label: 'Music', value: 'music' },
       { label: 'Travel', value: 'travel' }
+    ],
+    validators:[
+      {name:'required'}
     ]
   },
   {
