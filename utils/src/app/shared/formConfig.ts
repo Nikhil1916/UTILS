@@ -7,6 +7,7 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     label: 'Full Name',
     tooltip: 'Enter your complete name',
     cssClass: 'col-6',
+    fieldClass: 'p-6',
     validators: [
       { name: 'required' },
       { name: 'minlength', value: 3 },

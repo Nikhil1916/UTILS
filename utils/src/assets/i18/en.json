@@ -1,0 +1,19 @@
+{
+  "rubicon-test": {
+    "labels": {
+      "fullName": "Full Name",
+      "email": "Email"
+    },
+    "errors": {
+      "fullName": {
+        "required": "Full Name Field is Required",
+        "minlength": "Full name must be at least {{value}} characters",
+        "maxlength": "Full name cannot exceed {{value}} characters"
+      },
+      "email": {
+        "required": "Email is required",
+        "pattern": "Enter a valid email address"
+      }
+    }
+  }
+}

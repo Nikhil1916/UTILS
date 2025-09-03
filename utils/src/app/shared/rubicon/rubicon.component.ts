@@ -1,14 +1,35 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormCreateService } from '../services/form-create.service';
 
 @Component({
   selector: 'app-rubicon',
-  standalone: true,
-  imports: [],
   templateUrl: './rubicon.component.html',
   styleUrl: './rubicon.component.css'
 })
-export class RubiconComponent {
+export class RubiconComponent implements OnInit {
  @Input() fields!:any;
  @Input() group!:any;
+ @Input() slug!:string;
+ constructor(private formS:FormCreateService) {}
+ngOnInit(): void {
+    this.fields = [
+      {
+        key: 'fullName',
+        type: 'text',
+        label: 'Full Name',
+        tooltip: 'Enter your complete name',
+        cssClass: 'col-6',
+        fieldClass: 'mr-6',
+        validators: [
+          { name: 'required' },
+          { name: 'minlength', value: 3 },
+          { name: 'maxlength', value: 10 },
+        ],
+      },
+    ];
+    this.slug = 'rubicon-test'; 
+    this.group = this.formS.createForm(this.fields);
+}
+
 
 }

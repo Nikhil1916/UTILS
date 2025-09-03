@@ -5,6 +5,8 @@ import { DemoDynamicDataComponentComponent } from './demo-dynamic-data-component
 import { DynamicHostDirective } from './directives/dynamicHost.directive';
 import { FormCheckComponent } from './form-check/form-check.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TextComponent } from './rubicon/components/text/text.component';
+import { RubiconComponent } from './rubicon/rubicon.component';
 
 
 
@@ -13,7 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     DynamicDataComponentComponent,
     DemoDynamicDataComponentComponent,
     DynamicHostDirective,
-    FormCheckComponent
+    FormCheckComponent,
+    TextComponent,
+    RubiconComponent
   ],
   imports: [
     CommonModule,

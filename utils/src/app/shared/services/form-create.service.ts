@@ -2,7 +2,6 @@
 
 import { Injectable } from '@angular/core';
 import {
-  Form,
   FormArray,
   FormBuilder,
   FormControl,
@@ -42,7 +41,8 @@ export class FormCreateService {
           ) || []
         );
         if (field.validators?.some((v) => v.name === 'required')) {
-          checkBoxArray.setValidators(this.atLeastOneSelectedValidator);
+          checkBoxArray.setValidators(this.atLeastOneSelectedValidator());
+          checkBoxArray.updateValueAndValidity();
         }
         return checkBoxArray;
       case 'label':
@@ -114,13 +114,19 @@ export class FormCreateService {
     return form.getRawValue();
   }
 
-  addFormArrayItem(formArray: FormArray, children: FieldConfig[]) {}
+  addFormArrayItem(formArray: FormArray, children: FieldConfig[]) {
+    const group = {};
+    children.forEach(child=>{
+
+    }) 
+  }
 
   private atLeastOneSelectedValidator(): any {
     return (control: any): { [key: string]: any } | null => {
       if (control instanceof FormArray) {
+      
         const selected = control.controls.some(
-          (ctrl) => ctrl.get('selected')?.value
+          (ctrl) => ctrl.get('selected')?.value === true
         );
         return selected ? null : { atLeastOneRequired: true };
       }

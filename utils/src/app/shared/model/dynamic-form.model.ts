@@ -28,5 +28,6 @@ export interface FieldConfig  {
   disabled?: boolean;        // disable flag
   validators?: ValidatorConfig[];  // validation list
   options?: Option[];        // for select/radio/checkbox
-  children?: FieldConfig[];  // for array/group fields
+  children?: FieldConfig[];  // for array/group fields,
+  fieldClass?:string
 }

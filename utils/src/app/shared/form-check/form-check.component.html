@@ -1,12 +1,20 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit($event)">
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit($event)">
     <div>
         <label for="name">Name:</label>
         <input type="text" name="name" formControlName="fullName" />
+        <div *ngIf="myForm.get('fullName')?.invalid && myForm?.get('fullName')?.touched">   
+            <small *ngIf="myForm.get('fullName')?.errors?.['required']">{{"Full Name is Required"}}</small>
+            <small *ngIf="myForm.get('fullName')?.errors?.['minlength']">{{"Minumum 3 characters is required"}}</small>
+        </div>
     </div>
     <br />
     <div>
         <label for="email">Email:</label>
         <input type="text" name="email" formControlName="email" />
+        <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+            <small *ngIf="myForm.get('email')?.errors?.['required']">Email is required</small>
+            <small *ngIf="myForm.get('email')?.errors?.['email']">Invalid email format</small>
+        </div>
     </div>
     <br />
     <div>
@@ -20,6 +28,9 @@
             <input type="radio" formControlName="gender" value="F" />
             Female
         </label>
+          <div *ngIf="myForm.get('gender')?.invalid && myForm.get('gender')?.touched">
+            Please select at least one value.
+        </div>
     </div>
 
     <br />
@@ -29,8 +40,8 @@
             <input type="checkbox" formControlName="selected" />
             {{ val.get('label')?.value }}
         </div>
-        <div *ngIf="myForm.get('hobbies')?.invalid && myForm.get('hobbies')?.touched">
-            Please select at least one thing.
+        <div *ngIf="myForm.get('agecheck')?.invalid && myForm.get('agecheck')?.touched">
+            Please select at least one value.
         </div>
     </div>
     <br />
@@ -53,4 +64,6 @@
     <div>
         <button type="submit">Submit</button>
     </div>
-</form>
+</form> -->
+
+<app-rubicon></app-rubicon>
