@@ -7,6 +7,8 @@ import { FormCheckComponent } from './form-check/form-check.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from './rubicon/components/text/text.component';
 import { RubiconComponent } from './rubicon/rubicon.component';
+import { Rubicon } from './rubicon/rubicon-directive';
+import { SelectComponent } from './rubicon/components/select/select.component';
 
 
 
@@ -17,7 +19,9 @@ import { RubiconComponent } from './rubicon/rubicon.component';
     DynamicHostDirective,
     FormCheckComponent,
     TextComponent,
-    RubiconComponent
+    RubiconComponent,
+    Rubicon,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { RubiconComponent } from './rubicon/rubicon.component';
   exports:[
     DynamicDataComponentComponent,
     DemoDynamicDataComponentComponent,
-    FormCheckComponent
+    FormCheckComponent,
+    RubiconComponent
   ],
   providers:[
     DatePipe,

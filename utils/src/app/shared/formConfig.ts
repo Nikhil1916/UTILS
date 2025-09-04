@@ -102,5 +102,17 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     type: 'label',
     label: 'Note: Please verify your information before submitting.',
     cssClass: 'col-12'
-  }
+  },
+  {
+  key: 'country',
+  type: 'select',
+  cssClass: 'col-6',
+  label: 'Country',
+  options: [
+    { label: 'India', value: 'IN' },
+    { label: 'USA', value: 'US' },
+    { label: 'Germany', value: 'DE' }
+  ],
+  validators: [{ name: 'required' }]
+}
 ];

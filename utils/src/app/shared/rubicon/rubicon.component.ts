@@ -12,23 +12,28 @@ export class RubiconComponent implements OnInit {
  @Input() slug!:string;
  constructor(private formS:FormCreateService) {}
 ngOnInit(): void {
-    this.fields = [
-      {
-        key: 'fullName',
-        type: 'text',
-        label: 'Full Name',
-        tooltip: 'Enter your complete name',
-        cssClass: 'col-6',
-        fieldClass: 'mr-6',
-        validators: [
-          { name: 'required' },
-          { name: 'minlength', value: 3 },
-          { name: 'maxlength', value: 10 },
-        ],
-      },
-    ];
-    this.slug = 'rubicon-test'; 
-    this.group = this.formS.createForm(this.fields);
+  console.log(this.fields, this.group, this.slug)
+    // this.fields = [
+    //   {
+    //     key: 'fullName',
+    //     type: 'text',
+    //     label: 'Full Name',
+    //     tooltip: 'Enter your complete name',
+    //     cssClass: 'p-6',
+    //     fieldClass: 'mr-6',
+    //     validators: [
+    //       { name: 'required' },
+    //       { name: 'minlength', value: 3 },
+    //       { name: 'maxlength', value: 10 },
+    //     ],
+    //   },
+    // ];
+    // this.slug = 'rubicon-test'; 
+    // this.group = this.formS.createForm(this.fields);
+}
+
+submit() {
+  console.log(this.group.value);
 }
 
 

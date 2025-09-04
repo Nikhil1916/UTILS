@@ -1,4 +1,24 @@
 <!-- https://chatgpt.com/c/68b09662-3c20-8327-ae82-a4897ed27a03 -->
+ <!-- pending to add global styles -->
  <!-- https://chatgpt.com/c/68b09662-3c20-8327-ae82-a4897ed27a03 -->
+<!-- 
+<app-text [slug]="slug" [group]="group" [field]="fields[0]"></app-text> -->
 
-<app-text [slug]="slug" [group]="group" [field]="fields[0]"></app-text>
+<form [formGroup]="group" (ngSubmit)="submit()" class="row g-3">
+  <ng-container *ngFor="let field of fields">
+    <ng-container *ngIf="field.type !== 'array'">
+      <div [ngClass]="field.cssClass">
+        <ng-container
+          appDynamicField
+          [field]="field"
+          [group]="group"
+          [slug]="slug"
+        ></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
