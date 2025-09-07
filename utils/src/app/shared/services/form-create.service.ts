@@ -116,15 +116,12 @@ export class FormCreateService {
 
   addFormArrayItem(formArray: FormArray, children: FieldConfig[]) {
     const group = {};
-    children.forEach(child=>{
-
-    }) 
+    children.forEach((child) => {});
   }
 
   private atLeastOneSelectedValidator(): any {
     return (control: any): { [key: string]: any } | null => {
       if (control instanceof FormArray) {
-      
         const selected = control.controls.some(
           (ctrl) => ctrl.get('selected')?.value === true
         );
@@ -132,5 +129,18 @@ export class FormCreateService {
       }
       return null;
     };
+  }
+
+  bindFunctionHandlers(fields: any[], context: any) {
+    fields.forEach((field: any) => {
+      if (field.type === 'selectv2' && field.functionBinders) {
+        const fnName = field.functionBinders.onChange as keyof typeof context;
+        const fn = context[fnName] as unknown as Function;
+        if (typeof fn === 'function') {
+          field.functionBinders.onChange = fn.bind(context);
+        }
+      }
+    });
+    return fields;
   }
 }

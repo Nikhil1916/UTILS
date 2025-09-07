@@ -9,6 +9,8 @@ import { TextComponent } from './rubicon/components/text/text.component';
 import { RubiconComponent } from './rubicon/rubicon.component';
 import { Rubicon } from './rubicon/rubicon-directive';
 import { SelectComponent } from './rubicon/components/select/select.component';
+import { SelectV2Component } from './rubicon/components/select-v2/select-v2.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -21,11 +23,13 @@ import { SelectComponent } from './rubicon/components/select/select.component';
     TextComponent,
     RubiconComponent,
     Rubicon,
-    SelectComponent
+    SelectComponent,
+    SelectV2Component
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   exports:[
     DynamicDataComponentComponent,

@@ -2,3 +2,8 @@
     margin-right: 6px;
     display: block;
 }
+
+:host ::ng-deep ng-select {
+  display: block;
+  width: 200px;
+}

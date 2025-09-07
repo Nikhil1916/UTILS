@@ -114,5 +114,21 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     { label: 'Germany', value: 'DE' }
   ],
   validators: [{ name: 'required' }]
+},
+ {
+  key: 'countryv2',
+  type: 'selectv2',
+  cssClass: 'col-6 p-6',
+  label: 'Country',
+  options: [
+    { label: 'India', value: 'IN' },
+    { label: 'USA', value: 'US' },
+    { label: 'Germany', value: 'DE' }
+  ],
+  validators: [{ name: 'required' }],
+  functionBinders: {
+    onChange:'onChange',
+    onSearch: 'onSearch'
+  }
 }
 ];

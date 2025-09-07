@@ -1,4 +1,4 @@
-export type FieldType = 'text' | 'textarea' | 'checkbox' | 'radio' | 'amount' | 'label' | 'select' | 'array' | 'date';
+export type FieldType = 'text' | 'textarea' | 'checkbox' | 'radio' | 'amount' | 'label' | 'select' | 'array' | 'date' | 'selectv2';
 
 
 // validator configuration
@@ -29,5 +29,6 @@ export interface FieldConfig  {
   validators?: ValidatorConfig[];  // validation list
   options?: Option[];        // for select/radio/checkbox
   children?: FieldConfig[];  // for array/group fields,
-  fieldClass?:string
+  fieldClass?:string;
+  functionBinders?:any;
 }

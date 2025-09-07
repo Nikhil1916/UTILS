@@ -7,10 +7,12 @@ import {
 } from '@angular/core';
 import { TextComponent } from './components/text/text.component';
 import { SelectComponent } from './components/select/select.component';
+import { SelectV2Component } from './components/select-v2/select-v2.component';
 
 const components: any = {
     text:TextComponent,
-    select:SelectComponent
+    select:SelectComponent,
+    selectv2:SelectV2Component
 };
 
 @Directive({
