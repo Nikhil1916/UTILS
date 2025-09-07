@@ -40,12 +40,15 @@ export class SelectV2Component implements OnInit, OnChanges {
   }
 
   change(e:any) {
+    // console.log(this.group.get(e.key)?.value);
     // console.log(this.field);
     this.field.functionBinders.onChange({
       event: e,
       field: this.field
     });
     this.cd.detectChanges();
+        console.log(this.group, this.field);
+
   }
 
 }

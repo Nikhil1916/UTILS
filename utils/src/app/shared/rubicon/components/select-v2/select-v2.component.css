@@ -33,3 +33,8 @@
     margin-bottom: 2rem !important;
     z-index: 100;
 }
+
+
+::ng-deep .ng-select.ng-select-single .ng-has-value .ng-placeholder {
+  display: none !important;
+}
