@@ -129,6 +129,10 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
   functionBinders: {
     onChange:'onChange',
     onSearch: 'onSearch'
+  },
+  visibleIf: {
+    fieldKey:'gender',
+    value: 'M'
   }
 },
 // {

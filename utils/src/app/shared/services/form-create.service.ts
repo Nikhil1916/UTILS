@@ -31,8 +31,11 @@ export class FormCreateService {
       case 'array':
         return this.fb.array([]);
       case 'checkbox':
-        if(!field?.options || field.options.length == 0) {
-          return new FormControl(false, this.bindValidators(field?.validators || []));
+        if (!field?.options || field.options.length == 0) {
+          return new FormControl(
+            false,
+            this.bindValidators(field?.validators || [])
+          );
         }
         const checkBoxArray = this.fb.array(
           field?.options?.map((opt: any) =>
@@ -147,5 +150,13 @@ export class FormCreateService {
       }
     });
     return fields;
+  }
+
+  isFieldVisible(field: FieldConfig, form: FormGroup): boolean {
+    if(field?.hide) return false;
+    if (!field.visibleIf) return true;
+    const depControl = form.get(field.visibleIf.fieldKey);
+    if (!depControl) return true;
+    return depControl.value === field.visibleIf.value;
   }
 }

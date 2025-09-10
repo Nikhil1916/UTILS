@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormCreateService } from '../services/form-create.service';
+import { FieldConfig } from '../model/dynamic-form.model';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-rubicon',
@@ -10,7 +12,7 @@ export class RubiconComponent implements OnInit {
  @Input() fields!:any;
  @Input() group!:any;
  @Input() slug!:string;
- constructor(private formS:FormCreateService) {}
+ constructor(public formService:FormCreateService) {}
 ngOnInit(): void {
   console.log(this.fields, this.group, this.slug)
     // this.fields = [
@@ -35,6 +37,5 @@ ngOnInit(): void {
 submit() {
   console.log(this.group.value, this.group);
 }
-
 
 }
