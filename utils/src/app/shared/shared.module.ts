@@ -12,6 +12,7 @@ import { SelectComponent } from './rubicon/components/select/select.component';
 import { SelectV2Component } from './rubicon/components/select-v2/select-v2.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CheckboxComponent } from './rubicon/components/checkbox/checkbox.component';
+import { RadioComponent } from './services/radio/radio.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CheckboxComponent } from './rubicon/components/checkbox/checkbox.compon
     Rubicon,
     SelectComponent,
     SelectV2Component,
-    CheckboxComponent
+    CheckboxComponent,
+    RadioComponent
   ],
   imports: [
     CommonModule,

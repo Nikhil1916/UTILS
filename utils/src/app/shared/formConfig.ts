@@ -130,5 +130,19 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     onChange:'onChange',
     onSearch: 'onSearch'
   }
-}
+},
+// {
+//   key: 'gender',
+//   type: 'radio',
+//   label: 'gender',
+//   options: [
+//     { label: 'Male', value: 'M' },
+//     { label: 'Female', value: 'F' },
+//     { label: 'Other', value: 'O' }
+//   ],
+//   validators: [
+//     { name: 'required', value: true }
+//   ]
+// }
+
 ];

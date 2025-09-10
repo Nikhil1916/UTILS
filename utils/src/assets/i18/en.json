@@ -5,7 +5,8 @@
       "email": "Email",
       "country": "Country",
       "countryv2":"Country",
-      "hobbies":"Hobbies"
+      "hobbies":"Hobbies",
+      "gender":"Gender"
     },
     "errors": {
       "fullName": {
@@ -27,8 +28,10 @@
       },
       "hobbies": {
         "required":"Atleast One hobby is Required."
+      },
+      "gender": {
+        "required":"Field is Required."
       }
-      
     }
   }
 }
