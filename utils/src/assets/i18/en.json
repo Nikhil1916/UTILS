@@ -2,7 +2,10 @@
   "rubicon-test": {
     "labels": {
       "fullName": "Full Name",
-      "email": "Email"
+      "email": "Email",
+      "country": "Country",
+      "countryv2":"Country",
+      "hobbies":"Hobbies"
     },
     "errors": {
       "fullName": {
@@ -13,7 +16,19 @@
       "email": {
         "required": "Email is required",
         "pattern": "Enter a valid email address"
+      },
+      "country": {
+        "required": "Country is required",
+        "pattern": "Country a valid email address"
+      },
+       "countryv2": {
+        "required": "Country is required",
+        "pattern": "Country a valid email address"
+      },
+      "hobbies": {
+        "required":"Atleast One hobby is Required."
       }
+      
     }
   }
 }

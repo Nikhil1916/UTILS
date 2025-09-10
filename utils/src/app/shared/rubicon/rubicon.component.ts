@@ -33,7 +33,7 @@ ngOnInit(): void {
 }
 
 submit() {
-  console.log(this.group.value);
+  console.log(this.group.value, this.group);
 }
 
 

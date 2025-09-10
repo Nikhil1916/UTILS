@@ -8,11 +8,13 @@ import {
 import { TextComponent } from './components/text/text.component';
 import { SelectComponent } from './components/select/select.component';
 import { SelectV2Component } from './components/select-v2/select-v2.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 const components: any = {
     text:TextComponent,
     select:SelectComponent,
-    selectv2:SelectV2Component
+    selectv2:SelectV2Component,
+    checkbox: CheckboxComponent
 };
 
 @Directive({

@@ -31,6 +31,9 @@ export class FormCreateService {
       case 'array':
         return this.fb.array([]);
       case 'checkbox':
+        if(!field?.options || field.options.length == 0) {
+          return new FormControl(false, this.bindValidators(field?.validators || []));
+        }
         const checkBoxArray = this.fb.array(
           field?.options?.map((opt: any) =>
             this.fb.group({
@@ -62,9 +65,9 @@ export class FormCreateService {
   }
 
   private bindValidators(validators: ValidatorConfig[]): any {
-    if (!validators || validators.length == 0) return null;
+    if (!validators || validators?.length == 0) return null;
 
-    const angularValidatoes = validators
+    const angularValidators = validators
       .map((v) => {
         switch (v.name) {
           case 'required':
@@ -87,7 +90,7 @@ export class FormCreateService {
         }
       })
       .filter(Boolean);
-    return angularValidatoes;
+    return angularValidators;
   }
 
   getControl(form: FormGroup, key: string): FormControl {
@@ -125,7 +128,9 @@ export class FormCreateService {
         const selected = control.controls.some(
           (ctrl) => ctrl.get('selected')?.value === true
         );
-        return selected ? null : { atLeastOneRequired: true };
+        // return selected ? null : { atLeastOneRequired: true };
+        //updated error name to required from atLeastOneRequired to map values in en.json
+        return selected ? null : { required: true };
       }
       return null;
     };

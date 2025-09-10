@@ -40,16 +40,16 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     key: 'agecheck',
     type: 'checkbox',
     label: "are you 18+?",
-    options: [
-      {
-         label:'Yes',
-         value: 'true'
-      },
-      {
-         label:'No',
-         value: 'false'
-      }
-    ],
+    // options: [
+    //   {
+    //      label:'Yes',
+    //      value: 'true'
+    //   },
+    //   {
+    //      label:'No',
+    //      value: 'false'
+    //   }
+    // ],
     validators:[
       {name:'required'}
     ]
