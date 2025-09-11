@@ -29,7 +29,11 @@ export class FormCreateService {
   private createControl(field: FieldConfig): any {
     switch (field.type) {
       case 'array':
-        return this.fb.array([]);
+        const arr:FormArray = this.fb.array([]);
+        if (field.children && field.children.length > 0) {
+          arr.push(this.createArrayGroup(field.children));
+        }
+        return arr;
       case 'checkbox':
         if (!field?.options || field.options.length == 0) {
           return new FormControl(
@@ -159,4 +163,13 @@ export class FormCreateService {
     if (!depControl) return true;
     return depControl.value === field.visibleIf.value;
   }
+
+  createArrayGroup(children: FieldConfig[]):FormGroup {
+    const group:any = {};
+    children?.forEach((child:any)=>{
+      group[child.key] = this.createControl(child);
+    });
+    return this.fb.group(group);
+  }
+
 }

@@ -17,7 +17,7 @@ custom → agar tumhare app me koi special component chahiye (ex: file upload, t
 <form [formGroup]="group" (ngSubmit)="submit()" class="row g-3">
   <ng-container *ngFor="let field of fields">
     <ng-container *ngIf="formService.isFieldVisible(field, group)">
-      <ng-container *ngIf="field.type !== 'array'">
+      <ng-container >
         <div [ngClass]="field.cssClass">
           <ng-container
             appDynamicField

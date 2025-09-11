@@ -11,6 +11,7 @@ import { SelectV2Component } from './components/select-v2/select-v2.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { RadioComponent } from '../services/radio/radio.component';
 import { DateComponent } from './components/date/date.component';
+import { GroupArrayComponent } from './components/group-array/group-array.component';
 
 const components: any = {
     text:TextComponent,
@@ -18,7 +19,8 @@ const components: any = {
     selectv2:SelectV2Component,
     checkbox: CheckboxComponent,
     radio: RadioComponent,
-    date: DateComponent
+    date: DateComponent,
+    array:GroupArrayComponent
 };
 
 @Directive({

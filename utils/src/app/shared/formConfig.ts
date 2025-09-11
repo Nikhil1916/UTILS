@@ -141,6 +141,27 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     cssClass: 'col-6',
     validators: [{ name: 'required' }],
   },
+  {
+    key: 'addresses',
+    type: 'array',
+    label: 'Addresses',
+    children: [
+      {
+        key: 'street',
+        type: 'text',
+        label: 'Street',
+        validators: [{ name: 'required' }],
+      },
+      {
+        key: 'city',
+        type: 'text',
+        label: 'City',
+        validators: [{ name: 'required' }],
+      },
+      { key: 'zip', type: 'text', label: 'Zip Code' },
+    ],
+  },
+
   // {
   //   key: 'gender',
   //   type: 'radio',
