@@ -1,4 +1,4 @@
-import { FieldConfig } from "./model/dynamic-form.model";
+import { FieldConfig } from './model/dynamic-form.model';
 
 export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
   {
@@ -11,8 +11,8 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     validators: [
       { name: 'required' },
       { name: 'minlength', value: 3 },
-      { name: 'maxlength', value: 50 }
-    ]
+      { name: 'maxlength', value: 50 },
+    ],
   },
   {
     key: 'email',
@@ -22,8 +22,8 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     cssClass: 'col-6',
     validators: [
       { name: 'required' },
-      { name: 'pattern', value: '^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$' }
-    ]
+      { name: 'pattern', value: '^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$' },
+    ],
   },
   {
     key: 'gender',
@@ -32,14 +32,14 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     cssClass: 'col-6',
     options: [
       { label: 'Male', value: 'M' },
-      { label: 'Female', value: 'F' }
+      { label: 'Female', value: 'F' },
     ],
-    validators: [{ name: 'required' }]
+    validators: [{ name: 'required' }],
   },
   {
     key: 'agecheck',
     type: 'checkbox',
-    label: "are you 18+?",
+    label: 'are you 18+?',
     // options: [
     //   {
     //      label:'Yes',
@@ -50,9 +50,7 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     //      value: 'false'
     //   }
     // ],
-    validators:[
-      {name:'required'}
-    ]
+    validators: [{ name: 'required' }],
   },
   {
     key: 'hobbies',
@@ -62,18 +60,16 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
     options: [
       { label: 'Sports', value: 'sports' },
       { label: 'Music', value: 'music' },
-      { label: 'Travel', value: 'travel' }
+      { label: 'Travel', value: 'travel' },
     ],
-    validators:[
-      {name:'required'}
-    ]
+    validators: [{ name: 'required' }],
   },
   {
     key: 'address',
     type: 'textarea',
     label: 'Address',
     cssClass: 'col-12',
-    validators: [{ name: 'required' }, { name: 'maxlength', value: 200 }]
+    validators: [{ name: 'required' }, { name: 'maxlength', value: 200 }],
   },
   {
     key: 'transactions',
@@ -86,67 +82,76 @@ export const SAMPLE_FORM_CONFIG: FieldConfig[] = [
         type: 'amount',
         label: 'Amount',
         cssClass: 'col-6',
-        validators: [{ name: 'required' }, { name: 'pattern', value: '^[0-9]+$' }]
+        validators: [
+          { name: 'required' },
+          { name: 'pattern', value: '^[0-9]+$' },
+        ],
       },
       {
         key: 'date',
         type: 'date',
         label: 'Date',
         cssClass: 'col-6',
-        validators: [{ name: 'required' }]
-      }
-    ]
+        validators: [{ name: 'required' }],
+      },
+    ],
   },
   {
     key: 'info',
     type: 'label',
     label: 'Note: Please verify your information before submitting.',
-    cssClass: 'col-12'
+    cssClass: 'col-12',
   },
   {
-  key: 'country',
-  type: 'select',
-  cssClass: 'col-6',
-  label: 'Country',
-  options: [
-    { label: 'India', value: 'IN' },
-    { label: 'USA', value: 'US' },
-    { label: 'Germany', value: 'DE' }
-  ],
-  validators: [{ name: 'required' }]
-},
- {
-  key: 'countryv2',
-  type: 'selectv2',
-  cssClass: 'col-6 p-6',
-  label: 'Country',
-  options: [
-    { label: 'India', value: 'IN' },
-    { label: 'USA', value: 'US' },
-    { label: 'Germany', value: 'DE' }
-  ],
-  validators: [{ name: 'required' }],
-  functionBinders: {
-    onChange:'onChange',
-    onSearch: 'onSearch'
+    key: 'country',
+    type: 'select',
+    cssClass: 'col-6',
+    label: 'Country',
+    options: [
+      { label: 'India', value: 'IN' },
+      { label: 'USA', value: 'US' },
+      { label: 'Germany', value: 'DE' },
+    ],
+    validators: [{ name: 'required' }],
   },
-  visibleIf: {
-    fieldKey:'gender',
-    value: 'M'
-  }
-},
-// {
-//   key: 'gender',
-//   type: 'radio',
-//   label: 'gender',
-//   options: [
-//     { label: 'Male', value: 'M' },
-//     { label: 'Female', value: 'F' },
-//     { label: 'Other', value: 'O' }
-//   ],
-//   validators: [
-//     { name: 'required', value: true }
-//   ]
-// }
-
+  {
+    key: 'countryv2',
+    type: 'selectv2',
+    cssClass: 'col-6 p-6',
+    label: 'Country',
+    options: [
+      { label: 'India', value: 'IN' },
+      { label: 'USA', value: 'US' },
+      { label: 'Germany', value: 'DE' },
+    ],
+    validators: [{ name: 'required' }],
+    functionBinders: {
+      onChange: 'onChange',
+      onSearch: 'onSearch',
+    },
+    visibleIf: {
+      fieldKey: 'gender',
+      value: 'M',
+    },
+  },
+  {
+    key: 'date',
+    type: 'date',
+    label: 'Date',
+    cssClass: 'col-6',
+    validators: [{ name: 'required' }],
+  },
+  // {
+  //   key: 'gender',
+  //   type: 'radio',
+  //   label: 'gender',
+  //   options: [
+  //     { label: 'Male', value: 'M' },
+  //     { label: 'Female', value: 'F' },
+  //     { label: 'Other', value: 'O' }
+  //   ],
+  //   validators: [
+  //     { name: 'required', value: true }
+  //   ]
+  // }
 ];
