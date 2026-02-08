@@ -15,6 +15,7 @@ import { CheckboxComponent } from './rubicon/components/checkbox/checkbox.compon
 import { RadioComponent } from './services/radio/radio.component';
 import { DateComponent } from './rubicon/components/date/date.component';
 import { GroupArrayComponent } from './rubicon/components/group-array/group-array.component';
+import { LabelComponent } from './rubicon/components/label/label.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GroupArrayComponent } from './rubicon/components/group-array/group-arra
     CheckboxComponent,
     RadioComponent,
     DateComponent,
-    GroupArrayComponent
+    GroupArrayComponent,
+    LabelComponent
   ],
   imports: [
     CommonModule,

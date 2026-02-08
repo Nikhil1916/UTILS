@@ -1,14 +1,26 @@
 <div *ngIf="group" [formGroup]="group" [class]="field?.cssClass">
-    <label *ngIf="field.label" [class]="field?.fieldClass">{{getLabel()}}</label>
-    <input
-        type="text"
-        class="form-control"
-        [formControlName]="field.key"
-        [attr.placeholder]="field.tooltip"
-      />
-       <div class="invalid-feedback" *ngIf="isInvalid()">
-        <ng-container *ngFor="let err of getErrors()">
-          <div>{{ err }}</div>
-        </ng-container>
-      </div>
+  <label *ngIf="field.label" [class]="field?.fieldClass">{{ getLabel() }}</label>
+
+  <input
+    *ngIf="field.type !== 'textarea'"
+    type="text"
+    [attr.inputmode]="field.type === 'amount' ? 'numeric' : null"
+    [attr.pattern]="field.type === 'amount' ? '[0-9]*' : null"
+    class="form-control"
+    [formControlName]="field.key"
+    [attr.placeholder]="field.tooltip"
+  />
+  <textarea
+    *ngIf="field.type === 'textarea'"
+    class="form-control"
+    [formControlName]="field.key"
+    [attr.placeholder]="field.tooltip"
+    rows="3"
+  ></textarea>
+
+  <div class="invalid-feedback" *ngIf="isInvalid()">
+    <ng-container *ngFor="let err of getErrors()">
+      <div>{{ err }}</div>
+    </ng-container>
+  </div>
 </div>

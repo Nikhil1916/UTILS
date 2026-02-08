@@ -1,5 +1,4 @@
 import {
-  ComponentFactoryResolver,
   Directive,
   Input,
   OnInit,
@@ -12,15 +11,19 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { RadioComponent } from '../services/radio/radio.component';
 import { DateComponent } from './components/date/date.component';
 import { GroupArrayComponent } from './components/group-array/group-array.component';
+import { LabelComponent } from './components/label/label.component';
 
-const components: any = {
-    text:TextComponent,
-    select:SelectComponent,
-    selectv2:SelectV2Component,
-    checkbox: CheckboxComponent,
-    radio: RadioComponent,
-    date: DateComponent,
-    array:GroupArrayComponent
+const components: Record<string, any> = {
+  text: TextComponent,
+  textarea: TextComponent,
+  amount: TextComponent,
+  select: SelectComponent,
+  selectv2: SelectV2Component,
+  checkbox: CheckboxComponent,
+  radio: RadioComponent,
+  date: DateComponent,
+  array: GroupArrayComponent,
+  label: LabelComponent,
 };
 
 @Directive({
@@ -29,24 +32,20 @@ const components: any = {
 export class Rubicon implements OnInit {
   @Input() field!: any;
   @Input() group!: any;
-  @Input() slug!:string;
+  @Input() slug!: string;
 
-  constructor(
-    private resolver: ComponentFactoryResolver,
-    private containerRef: ViewContainerRef
-  ) {}
+  constructor(private viewContainerRef: ViewContainerRef) {}
 
   ngOnInit() {
-    const component = components[this.field.type];
-    // console.log(component);
-    if(!component) {
-        // const supportedTypes = Object.keys(components).join(", ");
-        // throw new Error(`Trying to use an unsupported field type (${this.field.type}). Supported types: ${supportedTypes}`);
-        return;
+    const component = components[this.field?.type];
+    if (!component) {
+      console.warn(
+        `Rubicon: Unsupported field type "${this.field?.type}". Supported: ${Object.keys(components).join(', ')}`
+      );
+      return;
     }
 
-    const factory = this.resolver.resolveComponentFactory(component);
-    const componentRef:any = this.containerRef.createComponent(factory);
+    const componentRef:any = this.viewContainerRef.createComponent(component);
     componentRef.instance.field = this.field;
     componentRef.instance.group = this.group;
     componentRef.instance.slug = this.slug;
